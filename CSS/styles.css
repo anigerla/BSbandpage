@@ -489,6 +489,15 @@ iframe {
   font-size: 1.4rem;
 }
 
+.comments .userComments2 .fa-heart {
+  font-size: 1.8rem;
+}
+
+.comments .userComments2 .likeCount {
+  padding-left: 1.5rem;
+  font-size: 1.8rem;
+}
+
 footer {
   height: 100vh;
   background-color: #272727;
