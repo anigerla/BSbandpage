@@ -1,0 +1,764 @@
+// *BORDER-BOX
+* {
+ 	box-sizing: border-box; 
+}
+// SASS Variables and Mixins Start
+
+$white: #FFFFFF;
+$lightgray: #D7D7D7;
+$listen_button: rgba(255, 255, 255, 0.4);
+$music_background: #F9F9F9;
+$footer_color: #272727;
+$size_general: 100vh;
+$size_desktop_smaller: 100%;
+$instagram: #c32aa3;
+$facebook: #3b5998;
+$twitter: #1da1f2;
+
+@mixin font_white_upper {
+    text-transform: uppercase;
+    color: $white;
+    font-weight: bold;
+}
+
+@mixin link_transition {
+    transition: color 0.3s ease-in;
+}
+
+@mixin mobile_flex_column {
+    display: flex;   
+    align-items: center;
+    flex-direction: column;
+}
+// SASS Variables and Mixins End
+
+// General HTML Styling starts
+html {
+    font-family: 'Poppins', sans-serif;
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+}
+
+.skip-link {
+    position: absolute;
+    left: -1000px;
+    top: 5px;
+    z-index: 999;
+    background: white;
+    color: blue;
+    font-size: 40px;
+}
+
+.skip-link:focus {
+    left: 0;
+}
+
+h1 {
+    font-size: 84px;
+    @include font_white_upper();
+    margin-bottom: 0;
+}
+
+h2 {
+    font-size: 64px;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 36px;
+    color: $white;
+    font-weight: 600;
+    margin-top: 0px;
+    font-weight: normal;
+}
+
+p {
+    font-size: 24px;
+}
+
+a {
+    text-decoration: none;
+    @include font_white_upper();
+    font-size: 18px;
+}
+
+button {
+    @include font_white_upper();    
+    padding: 15px 20px;
+    border-radius: 4px;
+    font-size: 2rem;
+    width: 198px;
+    height: 55px;
+    @include link_transition;
+    transition: border 0.2s ease-in;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.hero, .about, .music_wrapper, .gallery, .f_wrapper, .comments_wrapper, .shows__wrapper {
+    margin: 0 15rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;   
+}
+
+.shows_wrapper {
+    padding-top: 1rem;
+}
+// General Stylings Ends
+
+// Header Styling Starts
+header {
+    background-image: url("../Assets/Images/ana-grave-156852-unsplash.jpg");
+	background-size: cover;
+}
+
+.hero {
+	display: flex;
+    height: $size_general;
+    flex-direction: column;
+    padding-top: 1rem;
+
+    &__navbar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.hero__navbar span {
+    @include font_white_upper();
+    font-size: 29px;
+
+    &bars_menu {
+        display: none;
+    }
+}
+
+nav ul {
+    display: flex;
+    & li {
+        list-style-type: none;
+    }
+}
+
+.hero a, .shows__wrapper a {
+    padding: 10px;
+    @include link_transition();
+}
+
+.hero a:hover {
+    color: $footer_color;
+}
+
+.shows__wrapper a:hover {
+    color: gray;
+}
+
+ul li:last-child a {
+    color: lightgray;
+    padding-left: 10rem;
+}
+
+.nav__link {
+    color: $lightgray;
+}
+
+.slogan {
+    @include mobile_flex_column();
+    justify-content: center;
+    height: 100%;
+
+    & button {
+        background-color: $listen_button;
+        border: 2px solid $white;
+    }
+    
+    & button:hover {
+        color: $footer_color;
+        border: $footer_color;
+    }
+}
+// Header Styling Ends
+
+//Shows Page Styling Starts
+.shows {
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.7)), url(../Assets/Images/hanny-naibaho-388579-unsplash.png);
+    background-size: cover;
+}
+
+.shows__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & h1 {
+        font-size: 64px;
+    }
+}
+
+#showsTable {
+    color: $white;
+    border-collapse: collapse;
+}
+
+tr {
+    border-bottom: 1px solid $lightgray;    
+}
+
+tr td {
+    font-size: 18px;
+    // font-weight: normal;
+    padding: 2rem;
+}
+
+tr td span {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+td:first-child span:first-child {
+    font-weight: bold;
+}
+
+tr td:nth-last-child(2) {
+    text-align: left;
+}
+
+// tr td span:first-child {
+//     font-weight: bold;
+// }
+
+tr td:last-child {
+    padding-bottom: 3.5rem;
+}
+
+.getTixBtn {
+        background-color: $listen_button;
+        border: 2px solid $white;
+}        
+
+.getTixBtn:hover {
+        color: $footer_color;
+        border: $footer_color;
+}
+//Shows Page Styling Ends
+
+// Body Styling Starts
+// Section One "ABOUT" Starts
+.about {
+    height: $size_general;
+    display: flex;
+    flex-direction: column;
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+
+    &__para1 {
+        width: 60%;
+        font-weight: 900;
+    }
+
+    &__para2 {
+        font-size: 20px;
+        padding-left: 6rem;
+        width: 100%;
+        line-height: 3.5rem;
+    }
+}
+// Section Two "MUSIC" Starts
+.music {
+    background: $music_background;
+    padding-bottom: 5rem;
+    &__para {
+        line-height: 3.5rem;
+        margin-left: 0;
+        font-size: 20px;
+    }
+
+    &__text {
+        padding-left: 8rem;
+        margin-right: 13rem;
+
+        & span {
+            font-size: 20px;
+        }
+
+        & span:first-child {
+            font-weight: bold;
+        }
+    }
+}
+
+iframe {
+    border: 0; 
+    width: 326px; 
+    height: 451px;
+}       
+
+.music_wrapper>div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.side_image {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+
+    & div {
+        position: relative;
+    }
+
+    & div span {
+        position: absolute;
+        @include font_white_upper();
+        font-size: 10px;
+        top: 1rem;
+    }
+
+    & div .band_name {
+        left: 3rem;
+    }
+
+    & div span:last-child {
+        right: 2rem;
+    }
+}
+// Section Three "GALLERY" Starts
+.images {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.images div {
+    width: 285px;
+    height: 285px;
+    margin: 10px 0;   
+    }
+
+.images img {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.images img:hover {
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+    box-shadow: 0 10px 10px -3px black;
+    cursor: pointer;
+}
+// Source: http://cssdeck.com/labs/16-box-shadows-to-save-your-time/
+
+// Section Four "COMMENTS" Starts
+
+.comments_wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.comments{
+    background-color: $music_background;
+
+    & h3 {
+        color: black;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        font-size: 24px;
+    }
+
+    & div .inputForm__name, div .inputForm__text {
+        width: 100%;
+        height: 60px;
+        margin-bottom: 2.5rem;
+        border: solid 1px $lightgray;
+        border-radius: 4px;
+        padding-left: 10px;
+    }
+
+    div .inputForm__text {
+        height: 180px;
+        padding-bottom: 120px;
+    }
+
+    & div .textarea {
+        height: 150px;
+    }
+
+    &__button {
+        background: #000000;
+        border: 0 solid #000000;
+        border-radius: 4px;
+        width: 40%;
+        margin-bottom: 3rem;
+        font-size: 1.7rem;
+    };
+
+    & .userComments2 {
+            max-width: 570px;
+            padding: 2rem 0;
+            border-bottom: solid 1px $lightgray;
+            border-top: solid 1px $lightgray;
+
+        &__user {
+            font-size: 14px;
+            font-weight: bold;            
+        }
+
+        &__date {
+            color: $lightgray;
+            font-size: 14px;
+            padding-left: 2rem;
+        }
+
+        &__text {
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        & .commentSpan {
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        & .commentDate {
+            font-weight: normal;
+            font-size: 1.4rem;
+            padding-left: 2rem;
+            color: gray;
+        }
+
+        & .commentP {
+            font-size: 1.4rem;
+        }
+    }
+}
+// Body Styling Ends
+
+// Footer Styling Starts
+footer {
+    height: $size_general;
+    background-color: $footer_color;
+    width: 100vw;
+}
+
+.f_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0rem 20rem 15rem 15rem;
+}
+
+.f_wrapper--shows {
+    margin-top: 0;
+}
+
+.contacts {
+    display: flex;
+    justify-content: space-between;
+    
+    &__column {
+        width: 25%;
+    }
+
+    & div:first-child {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__column p a {
+        text-transform: none;
+        font-weight: normal;
+    }
+}
+
+.f_wrapper h2 {
+    color: $white;
+}
+
+.contacts div span {
+    font-size: 18px;
+    @include font_white_upper();
+}
+
+.contacts div p {
+    font-size: 18px;
+    color: $white;
+}
+
+.email:hover {
+    color: darkgray;
+}
+
+.social_media_links {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 4rem;
+}
+
+#instagram:hover {
+    border: 3px solid $instagram;
+    border-radius: 5px;
+}
+
+#facebook:hover path{
+    fill: $facebook;
+}
+
+#twitter:hover path{
+    fill: $twitter; 
+}
+
+.copyright {
+    color: $white;
+    font-size: 12px;
+    margin-left: 15rem;
+}
+// Footer Styling Ends
+
+// Responsive Layout Starts
+
+// @media - breakpoints introduced according to the changes in layout of the webpage when minimised from the default screen size
+@media (max-width: 1200px) {
+    .music, .about, footer {
+        height: $size_desktop_smaller;
+    }
+
+    .f_wrapper {
+        margin: 0 5rem 10rem 7rem;
+    }
+
+    .contacts {
+        &__column p a {
+        text-transform: none;
+        font-weight: normal;
+        font-size: 1.2rem;
+        }
+    }
+
+    .music__text {
+        margin-right: 1rem;
+        padding-left: 0rem;
+    }
+
+    td {
+        border: none;
+    }
+}
+
+@media (max-width: 904px) {
+    .nav_bar {
+        display: none;
+    }
+
+    h3 {
+        font-size: 2.5rem;
+    }
+
+    .about__para2  {
+        display: none;
+    }
+
+    .about  {
+        display: flex;
+        align-items: center;
+    
+        &__content {
+            justify-content: center;
+            width: 100%;
+        }
+    }
+
+    .about__para1 {
+        width: 100%;
+        }
+
+    .about, .music_wrapper, .wrapper_body {
+        @include mobile_flex_column();
+        margin-bottom: 10rem;
+    }
+
+    .music {
+        width: 100%;
+    }
+
+    .music_wrapper {
+        margin-bottom: 0;
+    }
+
+    .music_wrapper__subdiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .gallery {
+        margin: 0 2rem;
+        @include mobile_flex_column();
+    }
+
+    .images {
+        justify-content: space-around;
+    }
+
+    .comments {
+    margin: 0 3rem;
+    padding-top: 5rem;
+    
+        &_wrapper {
+            width: 90vw;
+            margin: 0 7rem;
+        }
+    
+        &__button {
+            width: 100%;
+        }
+    }    
+
+    .f_wrapper {
+        margin: 0 3rem 10rem 3rem;
+    }
+
+// @media for the Shows page
+    .shows__wrapper {
+        margin: 0 5rem;
+    }
+
+}
+
+@media (max-width: 670px) {
+    
+    .hero__navbar {
+        justify-content: center; 
+       & nav {
+            display: none;
+        }
+    }
+
+    h1 {
+        font-size: 4rem;
+    }
+    
+    .f_wrapper {
+        h2 {
+            text-align: center;
+        }
+    }
+
+    .contacts {
+        @include mobile_flex_column();
+        & p a {
+            font-size: 1.6rem;
+            padding: 20px;
+            margin-left: -60px;
+        }
+    }
+}
+
+@media (min-width: 320px) and (max-width: 669px) {
+    
+    .hero__navbar span {
+        display: none;
+    }
+
+    .bars_menu {
+    display: inline-block;
+    cursor: pointer;
+    }
+
+    .bar1, .bar2, .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: #333;
+        margin: 6px 0;
+        transition: 0.4s;
+    }
+
+    .wrapper_body {
+        margin-bottom: 0;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    .about__para1 {
+        font-size: 1.8rem;
+    }
+
+    .tall_img {
+        height: 200px;
+        width: 200px;
+    }
+
+    .images div {
+        height: 250px;
+        width: 250px;
+    }
+
+    .comments {
+    margin: 0 3rem;
+    padding-top: 5rem;
+    
+        &_wrapper {
+            width: 90vw;
+            margin: 0 7rem;
+        }
+    
+        &__button {
+            width: 100%;
+        }
+    }    
+
+    .f_wrapper {
+        margin: 0;
+    }
+
+    .contacts__column {
+        & span {
+            display: none;
+        }
+        & p {
+            display: none;
+        }
+    }
+
+    .social_media_links {
+        font-size: 2.6rem;
+        flex-direction: column;
+        align-items: center
+    }
+    .copyright {
+        margin-left: 3rem; 
+        font-size: 0.8rem;
+    }
+
+    // @media for the Shows Page
+    .shows {
+        width: 100vw;
+    }
+
+    table {
+        display: flex;
+        flex-direction: column;
+    }
+}
+// @media styling ends
