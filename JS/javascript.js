@@ -32,25 +32,41 @@ function commentDisplay(data) {
         let commentSpan = document.createElement('span');
         let commentDate = document.createElement('span');
         let commentP = document.createElement('p');
-        let commentLike = document.createElement('i');
+        let commentLike = document.createElement('span');
+        let likeCount = document.createElement('span');
         // below appends children to the parent containers
         userComments.appendChild(commentDiv);
         commentDiv.appendChild(commentSpan);
         commentDiv.appendChild(commentDate);
         commentDiv.appendChild(commentP);
         commentDiv.appendChild(commentLike);
+        commentDiv.appendChild(likeCount);
         // below adds class namdes to the created p and span elements
         commentDiv.classList.add('userComments2');
         commentSpan.classList.add("commentSpan");
         commentDate.classList.add("commentDate");
         commentP.classList.add("commentP");
-       
+        likeCount.classList.add("likeCount");
+        // commentLike.classList.add("fas fa - heart");
         // takes information collected by the below function from the input fields and fills the empty elements
         commentSpan.innerHTML = currentComment.name;
-        commentDate.innerHTML = calcDate;
+        commentDate.innerHTML = currentComment.timestamp;
         commentP.innerHTML = currentComment.comment;
+        //below inserts 'heart' icon to represent likes
+        commentLike.innerHTML = '<i class="fas fa-heart"></i>';
+        commentLike.addEventListener("click", myFunction);
+        likeCount.innerHTML = "0";
     }
 };
+
+
+let count = 0;
+function myFunction() {
+    count += 1;
+    document.getElementsByClassName("likeCount").innerHTML = count;
+}
+
+// myFunction();
 
 // below calculates the time that comment was posted ago
 // Source: https://www.npmjs.com/package/javascript-time-ago
