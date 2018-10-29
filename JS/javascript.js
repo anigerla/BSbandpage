@@ -47,30 +47,33 @@ function commentDisplay(data) {
         commentDate.classList.add("commentDate");
         commentP.classList.add("commentP");
         likeCount.classList.add("likeCount");
-        // commentLike.classList.add("fas fa - heart");
         // takes information collected by the below function from the input fields and fills the empty elements
         commentSpan.innerHTML = currentComment.name;
-        commentDate.innerHTML = currentComment.timestamp;
+        // timeSince(currentComment.timestamp);
+        commentDate.innerHTML = timeSince(currentComment.timestamp);
         commentP.innerHTML = currentComment.comment;
         //below inserts 'heart' icon to represent likes
         commentLike.innerHTML = '<i class="fas fa-heart"></i>';
-        commentLike.addEventListener("click", myFunction);
         likeCount.innerHTML = "0";
+        //adds onclick event listener onto the "like" button and ties "likes" count with the onclick event
+        //on the "like" button
+        commentLike.addEventListener("click", function () {
+            commentLike.innerHTML = '<i class="fas fa-heart" style="color:red"></i>';
+            likeCount.innerHTML = myFunction(clicks);
+            // clicks = likeCount.innerHTML; --> increases likes count beyond one but summarizes all comments'
+            //likes into one total, does not keep the likes for each comment separately;   
+        });
+        //Source: https://stackoverflow.com/questions/20499920/how-to-toggle-the-innerhtml-of-element-on-click
     }
 };
 
-
-let count = 0;
-function myFunction() {
-    count += 1;
-    document.getElementsByClassName("likeCount").innerHTML = count;
+//click function that increments likes' count
+let clicks = 0;
+function myFunction(clicks) {
+    clicks ++;   
+    return clicks;
 }
-
-// myFunction();
-
-// below calculates the time that comment was posted ago
-// Source: https://www.npmjs.com/package/javascript-time-ago
-// let timeAgo = timeAgo.format(Date.now() - 60 * 1000, 'time');
+//Source: https://stackoverflow.com/questions/22402777/html-javascript-button-click-counter
 
 // Below gets the sample comments from an outside server
 let collectComments = fetch("https://project-1-api.herokuapp.com/comments?api_key=f83af9e3-a0ca-491a-89a6-19bc033c1de2");
@@ -84,7 +87,7 @@ collectComments.then((response) => {
 });
 //------------------------------------------------------------------------------------------------------>
 
-//onsubmit event handler, form input field collection function, POST fetch request function
+//onsubmit event handler, form input field collection function
 document.getElementById('inputForm').onsubmit = function addComment() { 
     event.preventDefault();
     // document.getElementById("inputForm").reset();
@@ -99,6 +102,7 @@ document.getElementById('inputForm').onsubmit = function addComment() {
     sendComment(commentArr);
 };
 
+// POST fetch request function - information entered by the user is sent to an outside server for storage
 function sendComment(commentData) {
     const init = {
         body: JSON.stringify(commentData),
@@ -119,45 +123,46 @@ function sendComment(commentData) {
         });
 }
 
+//Clears out information entered by the user from the input fields upon submit
 function clearFunc() {
     document.querySelector('input[name=userName]').value = " ";
     document.querySelector('input[name=userComment]').value = " ";
     document.getElementById('userComments').innerHTML = " ";
 }
 
-// https://stackoverflow.com/questions/38698929/count-likes-button-like-in-the-demo
-
 // Time Ago calculator
-// function timeSince(date) {
+function timeSince(date) {
 
-//     var seconds = Math.floor((new Date() - date) / 1000);
+    var seconds = Math.floor((new Date() - date) / 1000);
 
-//     var interval = Math.floor(seconds / 31536000);
+    var interval = Math.floor(seconds / 31536000);
 
-//     if (interval > 1) {
-//         return interval + " years";
-//     }
-//     interval = Math.floor(seconds / 2592000);
-//     if (interval > 1) {
-//         return interval + " months";
-//     }
-//     interval = Math.floor(seconds / 86400);
-//     if (interval > 1) {
-//         return interval + " days";
-//     }
-//     interval = Math.floor(seconds / 3600);
-//     if (interval > 1) {
-//         return interval + " hours";
-//     }
-//     interval = Math.floor(seconds / 60);
-//     if (interval > 1) {
-//         return interval + " minutes";
-//     }
-//     return Math.floor(seconds) + " seconds";
-// }
-// var aDay = 24 * 60 * 60 * 1000
-// console.log(timeSince(new Date(Date.now() - aDay)));
-// console.log(timeSince(new Date(Date.now() - aDay * 2)));
+    if (interval > 1) {
+        return interval + " years ago";
+    }
 
+    interval = Math.floor(seconds / 2592000);
+
+    if (interval > 1) {
+        return interval + " months ago";
+    } 
+
+    interval = Math.floor(seconds / 86400);
+    if (interval > 1) {
+        return interval + " days ago";
+    } 
+
+    interval = Math.floor(seconds / 3600);
+    if (interval > 1) {
+        return interval + " hours ago";
+    }
+
+    interval = Math.floor(seconds / 60);
+    if (interval > 1) {
+        return interval + " minutes ago";
+    }
+
+    return Math.floor(seconds) + " seconds ago";
+}
 // Source: https://stackoverflow.com/questions/3177836/how-to-format-time-since-xxx-e-g-4-minutes-ago-similar-to-stack-exchange-site
 
