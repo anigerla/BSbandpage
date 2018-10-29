@@ -493,6 +493,10 @@ iframe {
   font-size: 1.8rem;
 }
 
+.comments .userComments2 .fa-heart:hover {
+  color: red;
+}
+
 .comments .userComments2 .likeCount {
   padding-left: 1.5rem;
   font-size: 1.8rem;
@@ -713,6 +717,15 @@ footer {
   .f_wrapper {
     margin: 0 3rem 10rem 3rem;
   }
+  .band_info {
+    display: visible;
+  }
+  .band_info span {
+    display: none;
+  }
+  h2 {
+    text-align: center;
+  }
   .shows__wrapper {
     margin: 0 5rem;
   }
@@ -750,9 +763,15 @@ footer {
     padding: 20px;
     margin-left: -60px;
   }
-}
-
-@media (min-width: 320px) and (max-width: 669px) {
+  .band_info {
+    display: visible;
+  }
+  .band_info span {
+    display: none;
+  }
+  h2 {
+    text-align: center;
+  }
   .hero__navbar span {
     display: none;
   }
@@ -818,6 +837,15 @@ footer {
   .copyright {
     margin-left: 3rem;
     font-size: 0.8rem;
+  }
+  .band_info {
+    display: visible;
+  }
+  .band_info span {
+    display: none;
+  }
+  h2 {
+    text-align: center;
   }
   .shows {
     width: 100vw;
