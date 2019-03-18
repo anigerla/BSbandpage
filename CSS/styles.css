@@ -10,6 +10,7 @@ html {
 
 body {
   margin: 0;
+  width: 100vw;
 }
 
 .skip-link {
@@ -31,7 +32,8 @@ h1 {
   text-transform: uppercase;
   color: #FFFFFF;
   font-weight: bold;
-  margin-bottom: 0;
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
 
 h2 {
@@ -84,12 +86,13 @@ button:hover {
   padding-bottom: 5rem;
 }
 
-.shows_wrapper {
+.shows__wrapper {
   padding-top: 1rem;
+  height: 100vh;
 }
 
 header {
-  background-image: url("../Assets/Images/ana-grave-156852-unsplash.jpg");
+  background-image: url("../Assets/Images/adam-birkett-206387-unsplash.jpg");
   background-size: cover;
 }
 
@@ -146,7 +149,7 @@ nav ul li {
 }
 
 .hero a:hover {
-  color: #272727;
+  color: gray;
 }
 
 .shows__wrapper a:hover {
@@ -190,8 +193,8 @@ ul li:last-child a {
 }
 
 .shows {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7))), url(../Assets/Images/hanny-naibaho-388579-unsplash.png);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7)), url(../Assets/Images/hanny-naibaho-388579-unsplash.png);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7))), url(../Assets/Images/michael-afonso-423393-unsplash.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7)), url(../Assets/Images/michael-afonso-423393-unsplash.jpg);
   background-size: cover;
 }
 
@@ -605,6 +608,10 @@ footer {
   color: #FFFFFF;
   font-size: 12px;
   margin-left: 15rem;
+}
+
+.slogan h2 {
+  color: white;
 }
 
 @media (max-width: 1200px) {

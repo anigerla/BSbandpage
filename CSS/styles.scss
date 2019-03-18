@@ -40,6 +40,7 @@ html {
 
 body {
     margin: 0;
+    width: 100vw;
 }
 
 .skip-link {
@@ -59,7 +60,8 @@ body {
 h1 {
     font-size: 84px;
     @include font_white_upper();
-    margin-bottom: 0;
+    margin-bottom: 0px;
+    margin-top: 0px;
 }
 
 h2 {
@@ -106,14 +108,15 @@ button:hover {
     padding-bottom: 5rem;   
 }
 
-.shows_wrapper {
+.shows__wrapper {
     padding-top: 1rem;
+    height: 100vh;
 }
 // General Stylings Ends
 
 // Header Styling Starts
 header {
-    background-image: url("../Assets/Images/ana-grave-156852-unsplash.jpg");
+    background-image: url("../Assets/Images/adam-birkett-206387-unsplash.jpg");
 	background-size: cover;
 }
 
@@ -153,7 +156,7 @@ nav ul {
 }
 
 .hero a:hover {
-    color: $footer_color;
+    color: gray;
 }
 
 .shows__wrapper a:hover {
@@ -189,7 +192,7 @@ ul li:last-child a {
 //Shows Page Styling Starts
 .shows {
     background-image: linear-gradient(
-      rgba(0, 0, 0, 0.7)), url(../Assets/Images/hanny-naibaho-388579-unsplash.png);
+      rgba(0, 0, 0, 0.7)), url(../Assets/Images/michael-afonso-423393-unsplash.jpg);
     background-size: cover;
 }
 
@@ -231,10 +234,6 @@ td:first-child span:first-child {
 tr td:nth-last-child(2) {
     text-align: left;
 }
-
-// tr td span:first-child {
-//     font-weight: bold;
-// }
 
 tr td:last-child {
     padding-bottom: 3.5rem;
@@ -546,6 +545,12 @@ footer {
     margin-left: 15rem;
 }
 // Footer Styling Ends
+
+//Band Info Page Styling starts
+.slogan h2 {
+    color: white;
+}
+//Band Info Page Styling ends
 
 // Responsive Layout Starts
 
